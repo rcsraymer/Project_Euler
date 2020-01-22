@@ -4,16 +4,33 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 # Answer
+# Establish start_int & end_int to sum (1, 2) and a threshold to reach (4000000)
+# Create list (fib_list) to append to in loop. Sum start_int & end_int 
+# In loop, replace start_int with end_int, end_int with sum
+# In example above (1, 2) is replaced with (2, 3)
+# Once end_int reaches above threshold, while condition ends
+# Create sum_list, loop through fib_list and append number only if l %2 == 0
+# Sum the sum_list
 
-threshold = 10
+start_int, end_int, threshold = 1, 2, 4000000
 
-lst = [1,2]
+fib_list = []
 
-for i in range(threshold-2):
-    print(lst[0])
-    print(lst[1])
-    sum_of_list = sum(lst)
-    last_element = lst[-1]
-    lst[0] = last_element
-    lst[1] = sum_of_list
-    print(sum_of_list)
+fib_list.append(start_int)
+
+while end_int <= (threshold):
+    fib_list.append(end_int)
+    
+    placeholder_int = end_int
+    end_int = start_int + end_int
+    start_int = placeholder_int
+
+sum_list = []
+
+for l in fib_list:
+    if l % 2 == 0:
+        sum_list.append(l)
+    else:
+        pass
+    
+print(sum(sum_list))        
