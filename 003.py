@@ -36,6 +36,22 @@ for i in filtered_list[start:end]:
     print('size of list' , len(filtered_list))
 
 print(filtered_list)
+
+
+list_1 = list(range(200))
+list_1_len = len(list_1)
+
+
+start = 0
+end = 5
+loops = 0
+
+while loops < list_1_len:
+    for i in list_1[start:end]:
+        start = start + 5
+        end = end + 5
+        print(i)
+    
 #
 #
 #prime_list = []
