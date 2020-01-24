@@ -7,55 +7,67 @@ import numpy as np
 
 # Answer
 
-#The sieve of Eratosthenes can be expressed in pseudocode, as follows:[7][8]
+
+n = 70000
+
+s = int(math.sqrt(n) - 1)
+
+ranged_list = list(range(2,s))
+print(len(ranged_list))
+filtered_list = []
+
+# Prefilter list ... remove all divisible by 2, 3, 5, 7
+x = lambda m: (m == 2 or m % 2 != 0) and (m == 3 or m % 3 != 0)
+# and (m == 5 or m % 5 != 0) and (m == 7 or m % 7 != 0)
+filtered_list = list(filter(x, ranged_list))
+
+print('initial size of list',len(filtered_list))
+print(filtered_list)
+
+start = 2
+end = 5
+# fix start and end 
+for i in filtered_list[start:end]:
+    x = lambda m: (m == i or m % i != 0)
+    filtered_list = list(filter(x, filtered_list))
+    start = start + 3 
+    end = end + 3
+    print(i)
+    print('size of list' , len(filtered_list))
+
+print(filtered_list)
 #
-#algorithm Sieve of Eratosthenes is
-#    input: an integer n > 1.
-#    output: all prime numbers from 2 through n.
 #
-#    let A be an array of Boolean values, indexed by integers 2 to n,
-#    initially all set to true.
-#    
-#    for i = 2, 3, 4, ..., not exceeding √n do
-#        if A[i] is true
-#            for j = i2, i2+i, i2+2i, i2+3i, ..., not exceeding n do
-#                A[j] := false
-#
-#    return all i such that A[i] is true.
-
-
-n = 1000
-
-s = int(math.sqrt(n))
-#print(s)
-prime_list = []
-
-ranged_list = list(range(2, s + 2))
-#print(len(ranged_list))
-
-loops = 0
-
-increment = 0
-
-while loops < s in ranged_list:
-    print(loops)
-    loops += 1
-    for l in loops:
-        stuff = l * l + increment
-        print(stuff)
-        increment += 1
-
-# Need to determine if numbers passed in are prime numbers
-
-
-# Prefilter for 2, 3
-#ranged_list = [num for num in ranged_list if ((num == 2) or (num == 3)) 
-#                                or ((num % 2 != 0) and (num % 3 !=0))]
-
 #prime_list = []
 #
-#for idx, val in enumerate(ranged_list):
-#    ranged_list = [num for num in ranged_list if num == val or num % val != 0]
-#    prime_list = [num for num in ranged_list if n % num == 0]
+#ranged_list = list(range(2, s + 2))
+##print(len(ranged_list))
 #
-#print(prime_list)
+#loops = 0
+#
+#increment = 0
+#
+#while loops < s in ranged_list:
+#    print(loops)
+#    loops += 1
+#    for l in loops:
+#        stuff = l * l + increment
+#        print(stuff)
+#        increment += 1
+#
+## Need to determine if numbers passed in are prime numbers
+#
+#
+#
+#
+## Prefilter for 2, 3
+##ranged_list = [num for num in ranged_list if ((num == 2) or (num == 3)) 
+##                                or ((num % 2 != 0) and (num % 3 !=0))]
+#
+##prime_list = []
+##
+##for idx, val in enumerate(ranged_list):
+##    ranged_list = [num for num in ranged_list if num == val or num % val != 0]
+##    prime_list = [num for num in ranged_list if n % num == 0]
+##
+##print(prime_list)
