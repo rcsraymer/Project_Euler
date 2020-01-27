@@ -7,6 +7,8 @@
 
 # Answer: 232792560
 
+# TODO @ 4:42 : Research Least common multiple
+
 import time
 
 start = time.time()
