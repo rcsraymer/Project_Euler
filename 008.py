@@ -24,7 +24,7 @@
 #Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 
 # Answer : 23514624000
-
+from functools import reduce
 import time
 import re
 
@@ -85,7 +85,7 @@ for n in nums:
             # Join all together to make int. If int is greater than var 
             # greatest_num, then set greater_num/greater_seq
             int_from_lst = ''.join(adjacent_lst)
-            if int_from_lst > greatest_num: 
+            if int(int_from_lst) > int(greatest_num): 
                 greatest_seq = list(map(int, adjacent_lst))
                 greatest_num = int_from_lst 
         # Increase for index slicing
