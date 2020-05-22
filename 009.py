@@ -5,44 +5,16 @@
 #
 #There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 #Find the product abc.
-import math
-from itertools import combinations
-
 expected_sum = 1000
 
-# Divide by 3, set min vals for all
-a, b, c = int((expected_sum / 3)-1), a + 1, a + 3
+def pyth_triplets():
+    for a in range(1,expected_sum):
+        for b in range(1,expected_sum):
+            c = expected_sum-a-b # find the third number by subtracting a and b from expected_sum, this shortens the loop
+            if (a**2 + b**2) == c**2:
+                return a,b,c
 
+a,b,c = pyth_triplets()
 print(a,b,c)
-
-ranged_lst = range(2,expected_sq)
-print(ranged_lst)
-for i in ranged_lst:
-    sqc = math.sqrt(i)
-    if i == sqc**2:
-        print(i)
-    else:
-        pass
-
-triples = list(combinations(ranged_lst,3))
-
-for a,b,c in triples:
-    if a + 
-
-#
-#for a,b in tuples:
-#    a2 = a**2
-#    b2 = b**2
-#    c = a2 + b2
-#    sqc = math.sqrt(c)
-#    print(a2,b2,c)
-#    if c == sqc**2:
-#        if a2 + b2 + c == expected_sum:
-#            print(a,b,int(sqc))
-#            print(a2,b2,c)
-#        else:
-#            pass
-#    else:
-#        pass
-
-print(math.sqrt(200))
+print(a**2,b**2,c**2)
+print(a*b*c)
